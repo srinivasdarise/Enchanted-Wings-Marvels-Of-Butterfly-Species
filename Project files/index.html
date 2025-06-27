@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Enchanted Wings - Butterfly Species Recognition</title>
+    <style>
+        body {
+            background: linear-gradient(to right, #fdf6e3, #ffebf0);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            padding: 50px;
+            color: #4a4a4a;
+        }
+
+        .container {
+            background-color: #fff8fc;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            max-width: 500px;
+            margin: auto;
+            border: 2px solid #ffc3e3;
+        }
+
+        h1 {
+            color: #d63384;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        input[type="file"] {
+            padding: 12px;
+            width: 80%;
+            border: 2px solid #ffd6e7;
+            border-radius: 10px;
+            font-size: 16px;
+        }
+
+        input[type="submit"] {
+            margin-top: 20px;
+            padding: 12px 30px;
+            background-color: #d63384;
+            border: none;
+            color: white;
+            font-size: 16px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #a31d5b;
+        }
+
+        .butterfly-icon {
+            font-size: 50px;
+            color: #ff69b4;
+            animation: fly 3s infinite;
+        }
+
+        @keyframes fly {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="butterfly-icon">🦋</div>
+        <h1>Enchanted Wings</h1>
+        <p><strong>Upload Butterfly Image for Species Recognition</strong></p>
+
+        <form method="POST" action="{{ url_for('upload') }}" enctype="multipart/form-data">
+            <input type="file" name="image" accept="image/*" required><br>
+            <input type="submit" value="Identify Species">
+        </form>
+    </div>
+</body>
+</html>
